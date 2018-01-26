@@ -24,7 +24,7 @@
             android:value="79be117076b4a223ad7e6070b3707b048834892a" />
         <meta-data
             android:name="net.hockeyapp.android.appIdentifier"
-            android:value="${HOCKEYAPP_APP_ID}" />
+            android:value="${HOCKEY_APP_ID}" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
