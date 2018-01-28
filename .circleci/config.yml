@@ -43,3 +43,23 @@ jobs:
               bash ./scripts/deploy-hockey.sh
               bash ./scripts/deploy-fabric.sh
             fi
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - prepare_dependencies
+      - run_tests:
+          requires:
+            - prepare_dependencies
+      - build_app:
+          requires:
+            - prepare_dependencies
+      - deploy_release:
+          requires:
+            - prepare_dependencies
+            - build_app
+            - run_tests
+          filters:
+            branches:
+              only: master
