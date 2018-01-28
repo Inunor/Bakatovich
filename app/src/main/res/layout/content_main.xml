@@ -19,14 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3dp"
-        android:text="Bakatovich" />
+        android:text="@string/surname" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3dp"
-        android:text="https://github.com/Inunor"
-        android:autoLink="web" />
-
+        android:autoLink="web"
+        android:text="@string/link" />
 
 </LinearLayout>
