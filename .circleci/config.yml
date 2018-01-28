@@ -41,5 +41,5 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               bash ./scripts/deploy-hockey.sh
-              ./gradlew crashlyticsUploadDistributionRelease
+              bash ./scripts/deploy-fabric.sh
             fi
