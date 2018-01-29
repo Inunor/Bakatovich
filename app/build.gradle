@@ -57,6 +57,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
-    compile 'net.hockeyapp.android:HockeySDK:5.1.0'
+        compile 'net.hockeyapp.android:HockeySDK:5.1.0'
     }
+    implementation 'com.android.support:appcompat-v7:27.0.2'
 }

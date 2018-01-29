@@ -17,4 +17,21 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="PlainText">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppName">
+        <item name="android:text">@string/app_name</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="NextButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:text">Next</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
 </resources>
