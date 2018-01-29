@@ -12,14 +12,15 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/profile"/>
+            android:src="@drawable/profile"
+            android:contentDescription="@string/image"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/PlainText"
-            android:padding="8dp"
-            android:text="@string/description"/>
+            android:layout_margin="@dimen/large_margin"
+            android:text="@string/description"
+            android:textSize="@dimen/medium_font"/>
 
     </LinearLayout>
 

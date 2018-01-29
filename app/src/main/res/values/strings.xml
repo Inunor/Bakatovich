@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Bakatovich_Application</string>
+    <string name="image">Picture</string>
     <string name="action_settings">Settings</string>
     <string name="greeting">Hello, my dear friend</string>
     <string name="description">This is basic information about application</string>
-    <string name="white_theme">White theme</string>
+    <string name="light_theme">Light theme</string>
     <string name="dark_theme">Dark theme</string>
     <string name="standard_layout">Standard layout</string>
     <string name="dense_layout">Dense layout</string>
