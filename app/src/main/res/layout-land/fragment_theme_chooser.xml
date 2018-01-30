@@ -16,14 +16,30 @@
             android:layout_weight="1"
             android:layout_marginStart="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/small_margin"
+            android:padding="@dimen/small_padding"
             android:background="@drawable/borders"
-            android:gravity="center">
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
             <RadioButton
                 android:id="@+id/standard_layout_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/standard_layout"
                 android:checked="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/standard_portrait"
+                android:textSize="@dimen/medium_font"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/standard_landscape"
+                android:textSize="@dimen/medium_font"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -32,13 +48,29 @@
             android:layout_weight="1"
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginEnd="@dimen/medium_margin"
+            android:padding="@dimen/small_padding"
             android:background="@drawable/borders"
-            android:gravity="center">
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
             <RadioButton
-                android:id="@+id/dance_layout_radio"
+                android:id="@+id/dense_layout_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dense_layout"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dense_portrait"
+                android:textSize="@dimen/medium_font"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dense_landscape"
+                android:textSize="@dimen/medium_font"/>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -46,10 +78,10 @@
 
     <Button
         android:id="@+id/next_button"
-        style="@style/NextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/medium_margin" />
+        android:layout_marginEnd="@dimen/medium_margin"
+        style="@style/NextButton"/>
 
 </LinearLayout>

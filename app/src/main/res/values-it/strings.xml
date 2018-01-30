@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bakatovich_Application</string>
+    <string name="image">Immagine</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="next">Il prossimo</string>
+    <string name="greeting">Ciao caro amico mio</string>
+    <string name="description">Questa è uninformazione di base sullapplicazione</string>
+    <string name="light_theme">Tema leggero</string>
+    <string name="dark_theme">Tema scuro</string>
+    <string name="standard_layout">Layout standard</string>
+    <string name="dense_layout">Layout denso</string>
+    <string name="standard_portrait">Ritratto: 4 icone in fila</string>
+    <string name="standard_landscape">Paesaggio: 6 icone in fila</string>
+    <string name="dense_portrait">Ritratto: 5 icone in fila</string>
+    <string name="dense_landscape">Paesaggio: 7 icone in fila</string>
+</resources>

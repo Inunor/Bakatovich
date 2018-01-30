@@ -13,39 +13,65 @@
         android:layout_margin="@dimen/medium_margin">
 
         <LinearLayout
-            android:id="@+id/light_theme_radio_cover"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginBottom="@dimen/small_margin"
-            android:gravity="center"
+            android:padding="@dimen/small_padding"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
             android:background="@drawable/borders">
 
             <RadioButton
-                android:id="@+id/light_theme_radio"
+                android:id="@+id/standard_layout_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="@string/light_theme"
+                android:text="@string/standard_layout"
                 android:textSize="@dimen/large_font" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/standard_portrait"
+                android:textSize="@dimen/medium_font"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/standard_landscape"
+                android:textSize="@dimen/medium_font"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/dark_theme_radio_cover"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginTop="@dimen/small_margin"
-            android:gravity="center"
+            android:padding="@dimen/small_padding"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
             android:background="@drawable/borders">
 
             <RadioButton
-                android:id="@+id/dark_theme_radio"
+                android:id="@+id/dense_layout_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dark_theme"
+                android:text="@string/dense_layout"
                 android:textSize="@dimen/large_font"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dense_portrait"
+                android:textSize="@dimen/medium_font"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dense_landscape"
+                android:textSize="@dimen/medium_font"/>
 
         </LinearLayout>
 

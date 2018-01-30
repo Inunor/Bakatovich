@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bakatovich_Application</string>
+    <string name="image">Картинка</string>
+    <string name="action_settings">Настройки</string>
+    <string name="next">Дальше</string>
+    <string name="greeting">Привет, мой дорогой друг</string>
+    <string name="description">Это первоначальная информация о данном приложении</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="dark_theme">Тёмная тема</string>
+    <string name="standard_layout">Стандартный макет</string>
+    <string name="dense_layout">Плотный макет</string>
+    <string name="standard_portrait">Портретная: 4 иконки в ряд</string>
+    <string name="standard_landscape">Ландшафтная: 6 иконок в ряд</string>
+    <string name="dense_portrait">Портретная: 5 иконок в ряд</string>
+    <string name="dense_landscape">Ландшафтная: 7 иконок в ряд</string>
+</resources>

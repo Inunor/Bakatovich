@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bakatovich_Application</string>
+    <string name="image">Bilde</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="next">Neste</string>
+    <string name="greeting">Hallo min kjære venn</string>
+    <string name="description">Dette er grunnleggende informasjon om søknad</string>
+    <string name="light_theme">Lett tema</string>
+    <string name="dark_theme">Mørkt tema</string>
+    <string name="standard_layout">Standardoppsett</string>
+    <string name="dense_layout">Tett layout</string>
+    <string name="standard_portrait">Portrett: 4 ikoner på rad</string>
+    <string name="standard_landscape">Landskap: 6 ikoner på rad</string>
+    <string name="dense_portrait">Portrett: 5 ikoner på rad</string>
+    <string name="dense_landscape">Landskap: 7 ikoner på rad</string>
+</resources>

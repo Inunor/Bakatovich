@@ -14,20 +14,19 @@ import android.widget.Button;
  */
 
 public class DescriptionFragment extends Fragment {
-    private Button nextButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_description, container, false);
-        nextButton = v.findViewById(R.id.next_button);
+        final Button nextButton = v.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getFragmentManager();
-                Fragment fragment = new ThemeFragment();
+                Fragment fragment = new LayoutFragment();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).
-                        addToBackStack("theme").commit();
+                        addToBackStack("layout").commit();
             }
         });
         return v;
