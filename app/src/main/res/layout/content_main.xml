@@ -26,6 +26,6 @@
         android:layout_height="wrap_content"
         android:padding="3dp"
         android:autoLink="web"
-        android:text="@string/app_name" />
+        android:text="@string/link" />
 
 </LinearLayout>

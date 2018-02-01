@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application;
+package com.bignerdranch.android.bakatovich_application.welcome_page;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * Created by anton on 28.01.2018.
- */
+import com.bignerdranch.android.bakatovich_application.R;
+
 
 public class DescriptionFragment extends Fragment {
 
@@ -24,9 +23,9 @@ public class DescriptionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getFragmentManager();
-                Fragment fragment = new LayoutFragment();
+                Fragment fragment = new ThemeFragment();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).
-                        addToBackStack("layout").commit();
+                        addToBackStack("theme").commit();
             }
         });
         return v;

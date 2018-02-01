@@ -1,10 +1,11 @@
-package com.bignerdranch.android.bakatovich_application;
+package com.bignerdranch.android.bakatovich_application.welcome_page;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.bignerdranch.android.bakatovich_application.R;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -23,10 +24,5 @@ public class WelcomeActivity extends AppCompatActivity {
                     .add(R.id.fragment_container, fragment)
                     .commit();
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
     }
 }

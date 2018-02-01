@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application;
+package com.bignerdranch.android.bakatovich_application.welcome_page;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * Created by anton on 28.01.2018.
- */
+import com.bignerdranch.android.bakatovich_application.R;
+
 
 public class WelcomeFragment extends Fragment {
 

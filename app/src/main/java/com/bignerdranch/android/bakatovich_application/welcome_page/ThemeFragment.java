@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application;
+package com.bignerdranch.android.bakatovich_application.welcome_page;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-public class LayoutFragment extends Fragment {
+import com.bignerdranch.android.bakatovich_application.R;
+
+public class ThemeFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_layout_chooser, container, false);
+        View v = inflater.inflate(R.layout.fragment_theme, container, false);
         final Button nextButton = v.findViewById(R.id.next_button);
         final LinearLayout lightThemeRadioCover = v.findViewById(R.id.light_theme_radio_cover);
         final LinearLayout darkThemeRadioCover = v.findViewById(R.id.dark_theme_radio_cover);
@@ -43,15 +45,13 @@ public class LayoutFragment extends Fragment {
             }
         });
 
-
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getFragmentManager();
-                Fragment fragment = new ThemeFragment();
+                Fragment fragment = new LayoutFragment();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).
-                        addToBackStack("theme").commit();
+                        addToBackStack("layout").commit();
             }
         });
         return v;

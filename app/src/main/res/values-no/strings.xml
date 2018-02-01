@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bakatovich_Application</string>
+    <string name="surname">Bakatovich</string>
+    <string name="name">Anton</string>
+    <string name="profile">Anton Bakatovich</string>
     <string name="image">Bilde</string>
     <string name="action_settings">Innstillinger</string>
     <string name="next">Neste</string>
@@ -14,4 +16,9 @@
     <string name="standard_landscape">Landskap: 6 ikoner på rad</string>
     <string name="dense_portrait">Portrett: 5 ikoner på rad</string>
     <string name="dense_landscape">Landskap: 7 ikoner på rad</string>
+    <string name="delete_item">Slett element?</string>
+    <string name="yes">Ja</string>
+    <string name="grid">Nett</string>
+    <string name="list">Liste</string>
+    <string name="settings">Innstillinger</string>
 </resources>

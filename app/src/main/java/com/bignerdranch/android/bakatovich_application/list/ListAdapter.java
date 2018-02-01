@@ -1,6 +1,8 @@
-package com.bignerdranch.android.bakatovich_application.launcher;
+package com.bignerdranch.android.bakatovich_application.list;
+
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -15,43 +17,43 @@ import com.bignerdranch.android.bakatovich_application.data.Item;
 
 import java.util.List;
 
-public class LauncherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @NonNull
     private final List<Item> data;
     private final Context context;
     private final String TAG;
 
-    public LauncherAdapter(@NonNull final List<Item> data, final Context context) {
+    public ListAdapter(@NonNull final List<Item> data, final Context context) {
         this.data = data;
         this.context = context;
-        TAG = context.getString(R.string.title_launcher_adapter);
+        TAG = context.getString(R.string.title_list_adapter);
     }
 
     @Override
     public  RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
-        return new Holder.GridHolder(view);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        return new Holder.ListHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        bindGridView((Holder.GridHolder) holder, position);
+        bindGridView((Holder.ListHolder) holder, position);
     }
 
-    private void bindGridView(@NonNull final Holder.GridHolder gridHolder, final int position) {
-        final View view = gridHolder.getImageView();
-        final TextView textView = gridHolder.getTextView();
+    private void bindGridView(@NonNull final Holder.ListHolder listHolder, final int position) {
+        final View view = listHolder.getImageView();
+        final TextView textView = listHolder.getTitle();
         final int color = data.get(position).getColor();
         final String hexColor = Integer.toHexString(color).substring(2);
-        view.setBackgroundColor(color);
+        ((GradientDrawable)view.getBackground()).setColor(color);
         textView.setText(hexColor);
 
         final View.OnClickListener snackBarOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 data.remove(position);
-                LauncherAdapter.this.notifyDataSetChanged();
+                ListAdapter.this.notifyDataSetChanged();
                 if (Log.isLoggable(TAG, Log.INFO)) {
                     Log.i(TAG, context.getString(R.string.deleted_item) +
                             context.getString(R.string.position) + position + ", " + context.getString(R.string.color) + hexColor);
@@ -66,7 +68,7 @@ public class LauncherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         .setAction(R.string.yes, snackBarOnClickListener)
                         .setDuration(5000);
 
-                snackbar.addCallback(new Snackbar.Callback(){
+                snackbar.addCallback(new Snackbar.Callback() {
                     @Override
                     public void onDismissed(Snackbar snackbar, int event) {
                         final String description;

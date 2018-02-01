@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bakatovich_Application</string>
+    <string name="surname">Bakatovich</string>
+    <string name="name">Anton</string>
+    <string name="profile">Anton Bakatovich</string>
     <string name="image">Immagine</string>
     <string name="action_settings">Impostazioni</string>
     <string name="next">Il prossimo</string>
@@ -14,4 +16,9 @@
     <string name="standard_landscape">Paesaggio: 6 icone in fila</string>
     <string name="dense_portrait">Ritratto: 5 icone in fila</string>
     <string name="dense_landscape">Paesaggio: 7 icone in fila</string>
+    <string name="delete_item">Cancella oggetto?</string>
+    <string name="yes">Sì</string>
+    <string name="grid">Griglia</string>
+    <string name="list">Elenco</string>
+    <string name="settings">impostazioni</string>
 </resources>

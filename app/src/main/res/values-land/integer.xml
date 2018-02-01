@@ -2,4 +2,5 @@
 <resources>
     <integer name="standard_count">6</integer>
     <integer name="dense_count">7</integer>
+    <integer name="span_count">6</integer>
 </resources>

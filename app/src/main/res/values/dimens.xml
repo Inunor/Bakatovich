@@ -10,9 +10,17 @@
     <dimen name="large_margin">24dp</dimen>
 
     <dimen name="small_font">8sp</dimen>
+    <dimen name="list_content_font">14sp</dimen>
     <dimen name="medium_font">16sp</dimen>
     <dimen name="large_font">24sp</dimen>
 
     <dimen name="item_offset">8dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 
 </resources>

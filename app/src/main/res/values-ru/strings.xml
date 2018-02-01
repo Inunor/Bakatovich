@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bakatovich_Application</string>
+    <string name="surname">Бакатович</string>
+    <string name="name">Антон</string>
+    <string name="profile">Антон Бакатович</string>
     <string name="image">Картинка</string>
     <string name="action_settings">Настройки</string>
     <string name="next">Дальше</string>
@@ -14,4 +16,9 @@
     <string name="standard_landscape">Ландшафтная: 6 иконок в ряд</string>
     <string name="dense_portrait">Портретная: 5 иконок в ряд</string>
     <string name="dense_landscape">Ландшафтная: 7 иконок в ряд</string>
+    <string name="delete_item">Удалить элемент?</string>
+    <string name="yes">Да</string>
+    <string name="grid">Сетка</string>
+    <string name="list">Список</string>
+    <string name="settings">Настройки</string>
 </resources>
