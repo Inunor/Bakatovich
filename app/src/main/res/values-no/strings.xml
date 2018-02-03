@@ -20,5 +20,11 @@
     <string name="yes">Ja</string>
     <string name="grid">Nett</string>
     <string name="list">Liste</string>
-    <string name="settings">Innstillinger</string>
+    <string name="delete">Slett</string>
+    <string name="launched_count">Lanserte: </string>
+
+    <!-- Settings -->
+    <string name="theme">Tema</string>
+    <string name="layout">Oppsett</string>
+    <string name="settings">innstillinger</string>
 </resources>

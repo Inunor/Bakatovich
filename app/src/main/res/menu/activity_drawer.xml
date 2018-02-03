@@ -13,6 +13,10 @@
             android:id="@+id/nav_list"
             android:icon="@drawable/ic_menu_list"
             android:title="@string/title_activity_list" />
+        <item
+            android:id="@+id/nav_application_grid"
+            android:icon="@drawable/ic_menu_grid"
+            android:title="@string/title_activity_application" />
     </group>
 
     <group

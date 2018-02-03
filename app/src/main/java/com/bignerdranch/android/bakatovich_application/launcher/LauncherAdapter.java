@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bignerdranch.android.bakatovich_application.Holder;
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Item;
 

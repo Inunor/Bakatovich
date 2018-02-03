@@ -13,12 +13,15 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import com.bignerdranch.android.bakatovich_application.R;
+import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
+import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 public class ThemeFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_theme, container, false);
         final Button nextButton = v.findViewById(R.id.next_button);
         final LinearLayout lightThemeRadioCover = v.findViewById(R.id.light_theme_radio_cover);
@@ -33,6 +36,7 @@ public class ThemeFragment extends Fragment {
                 darkThemeRadioButton.setChecked(false);
                 darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorWhite));
                 darkThemeRadioCover.setBackground(getResources().getDrawable(R.drawable.borders, null));
+                SettingsFragment.setTheme(Theme.getLight(), getActivity());
             }
         });
 
@@ -42,12 +46,16 @@ public class ThemeFragment extends Fragment {
                 lightThemeRadioButton.setChecked(false);
                 darkThemeRadioButton.setChecked(true);
                 darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorGray));
+                SettingsFragment.setTheme(Theme.getDark(), getActivity());
             }
         });
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!SettingsFragment.hasTheme(getActivity())) {
+                    SettingsFragment.setTheme(Theme.getDefault(), getActivity());
+                }
                 FragmentManager fragmentManager = getFragmentManager();
                 Fragment fragment = new LayoutFragment();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).

@@ -20,5 +20,11 @@
     <string name="yes">Tak</string>
     <string name="grid">Krata</string>
     <string name="list">Lista</string>
+    <string name="delete">Kasować</string>
+    <string name="launched_count">Uruchomiona: </string>
+
+    <!-- Settings -->
+    <string name="theme">Motyw</string>
+    <string name="layout">Układ</string>
     <string name="settings">Ustawienia</string>
 </resources>

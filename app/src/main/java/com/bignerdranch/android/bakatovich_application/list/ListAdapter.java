@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Item;
+import com.bignerdranch.android.bakatovich_application.Holder;
 
 import java.util.List;
 

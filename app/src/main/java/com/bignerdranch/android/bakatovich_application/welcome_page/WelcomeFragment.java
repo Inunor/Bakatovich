@@ -17,6 +17,7 @@ public class WelcomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         final View v = inflater.inflate(R.layout.fragment_welcome, container, false);
         final Button nextButton = v.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {

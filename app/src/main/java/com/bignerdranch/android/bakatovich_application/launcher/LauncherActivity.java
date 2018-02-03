@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application;
+package com.bignerdranch.android.bakatovich_application.launcher;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,36 +8,40 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bignerdranch.android.bakatovich_application.application.ApplicationActivity;
+import com.bignerdranch.android.bakatovich_application.MainActivity;
+import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.DataStorage;
 import com.bignerdranch.android.bakatovich_application.data.Item;
-import com.bignerdranch.android.bakatovich_application.launcher.OffsetItemDecoration;
-import com.bignerdranch.android.bakatovich_application.list.ListAdapter;
+import com.bignerdranch.android.bakatovich_application.list.ListActivity;
+import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
+import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
 
 
-public class ListActivity extends AppCompatActivity
+public class LauncherActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ListAdapter listAdapter;
+    private LauncherAdapter launcherAdapter;
     private DataStorage dataStorage;
     private String TAG;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(SettingsFragment.getTheme(this));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
-        TAG = getString(R.string.title_activity_list);
+        setContentView(R.layout.activity_launcher);
+        TAG = getString(R.string.title_activity_launcher);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_list);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -46,14 +50,15 @@ public class ListActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         final View navigationHeaderView = navigationView.getHeaderView(0);
         final View profileImage = navigationHeaderView.findViewById(R.id.avatar);
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListActivity.this, MainActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                //        | Intent.FLAG_ACTIVITY_NEW_TASK );
+                Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_NEW_TASK );
                 startActivity(intent);
             }
         });
@@ -65,31 +70,33 @@ public class ListActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Item item = dataStorage.pushFront();
-                listAdapter.notifyDataSetChanged();
+                launcherAdapter.notifyDataSetChanged();
                 if (Log.isLoggable(TAG, Log.INFO)) {
                     Log.i(TAG, getString(R.string.add_new_item) + item.getColor());
                 }
             }
         });
 
-        createLinearLayout();
+        createGridLayout();
     }
 
-    public void createLinearLayout() {
-        final RecyclerView recyclerView = findViewById(R.id.list_content);
+    private void createGridLayout() {
+        final RecyclerView recyclerView = findViewById(R.id.launcher_content);
         recyclerView.setHasFixedSize(true);
         final int offset = getResources().getDimensionPixelSize(R.dimen.item_offset);
         recyclerView.addItemDecoration(new OffsetItemDecoration(offset));
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        final int spanCount = getResources().getInteger(SettingsFragment.getLayoutColumn(this));
+        final GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
+        recyclerView.setLayoutManager(layoutManager);
 
-        listAdapter = new ListAdapter(dataStorage.getData(), getApplicationContext());
-        recyclerView.setAdapter(listAdapter);
+        launcherAdapter = new LauncherAdapter(dataStorage.getData(), getApplicationContext());
+        recyclerView.setAdapter(launcherAdapter);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_list);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -100,17 +107,23 @@ public class ListActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        Intent intent;
         int id = item.getItemId();
 
-        if (id == R.id.nav_grid) {
-            Intent intent = new Intent(this, LauncherActivity.class);
+        if (id == R.id.nav_list) {
+            intent = new Intent(this, ListActivity.class);
             startActivity(intent);
+            finish();
+        } else if (id == R.id.nav_application_grid) {
+            intent = new Intent(this, ApplicationActivity.class);
+            startActivity(intent);
+            finish();
         } else if (id == R.id.nav_settings) {
-
+            intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_list);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

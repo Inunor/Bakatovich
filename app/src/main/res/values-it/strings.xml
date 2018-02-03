@@ -20,5 +20,11 @@
     <string name="yes">Sì</string>
     <string name="grid">Griglia</string>
     <string name="list">Elenco</string>
-    <string name="settings">impostazioni</string>
+    <string name="delete">Elimina</string>
+    <string name="launched_count">Lanciato: </string>
+
+    <!-- Settings -->
+    <string name="theme">Tema</string>
+    <string name="layout">disposizione</string>
+    <string name="settings">Impostazioni</string>
 </resources>
