@@ -14,6 +14,7 @@ public class Entry {
         this.name = name;
         this.packageName = packageName;
         this.updateTime = updateTime;
+        this.launched = Database.get(packageName);
         this.icon = icon;
     }
 

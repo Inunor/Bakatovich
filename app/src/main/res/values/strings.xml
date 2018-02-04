@@ -38,7 +38,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- Log -->
+    <!-- Log Adapters -->
     <string name="title_activity_launcher" translatable="false">LauncherActivity</string>
     <string name="title_activity_list" translatable="false">ListActivity</string>
     <string name="title_launcher_adapter" translatable="false">LauncherAdapter</string>
@@ -56,6 +56,15 @@
     <string name="snack_bar_dismissed" translatable="false">SnackBar dismissed. </string>
     <string name="cause" translatable="false">Cause: </string>
     <string name="deleted_item" translatable="false">Deleted item: </string>
+
+    <!-- Log Database -->
+    <string name="insert">insert</string>
+    <string name="update">update</string>
+    <string name="get">get</string>
+    <string name="remove">remove</string>
+    <string name="clear">clear</string>
+    <string name="failed_to">failed to</string>
+    <string name="or">or</string>
 
     <!-- Settings -->
     <string name="theme">Theme</string>

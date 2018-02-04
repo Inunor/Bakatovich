@@ -22,6 +22,7 @@ import android.view.View;
 
 import com.bignerdranch.android.bakatovich_application.MainActivity;
 import com.bignerdranch.android.bakatovich_application.R;
+import com.bignerdranch.android.bakatovich_application.data.Database;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
 import com.bignerdranch.android.bakatovich_application.launcher.LauncherActivity;
 import com.bignerdranch.android.bakatovich_application.launcher.OffsetItemDecoration;
@@ -64,6 +65,7 @@ public class ApplicationActivity extends AppCompatActivity
             try {
                 Entry entry = getEntryFromPackageName(packageName);
                 data.add(entry);
+                Database.insertOrUpdate(entry);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
@@ -74,6 +76,7 @@ public class ApplicationActivity extends AppCompatActivity
                 String packageName = Uri.parse(intent.getDataString()).getSchemeSpecificPart();
                 if (packageName.equals(entry.getPackageName())) {
                     data.remove(entry);
+                    Database.remove(entry);
                     break;
                 }
             }
@@ -84,6 +87,7 @@ public class ApplicationActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(SettingsFragment.getTheme(this));
         super.onCreate(savedInstanceState);
+        Database.initialize(this);
         setContentView(R.layout.activity_application);
         TAG = getString(R.string.title_activity_application);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -128,6 +132,9 @@ public class ApplicationActivity extends AppCompatActivity
     protected void onStop() {
         super.onStop();
         unregisterReceiver(monitor);
+        for (Entry entry : data) {
+            Database.insertOrUpdate(entry);
+        }
     }
 
     private void createGridLayout() {

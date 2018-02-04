@@ -14,6 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.bignerdranch.android.bakatovich_application.R;
+import com.bignerdranch.android.bakatovich_application.data.Database;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
 import com.bignerdranch.android.bakatovich_application.Holder;
 
@@ -58,6 +59,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 if (launchIntent != null) {
                     context.startActivity(launchIntent);
                     data.get(position).updateLaunched();
+                    Database.insertOrUpdate(data.get(position));
                 }
             }
         });
