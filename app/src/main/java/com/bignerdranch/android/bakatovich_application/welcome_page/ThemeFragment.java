@@ -17,7 +17,6 @@ import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment
 import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 public class ThemeFragment extends Fragment {
-    private static final String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
@@ -51,13 +50,5 @@ public class ThemeFragment extends Fragment {
         });
 
         return v;
-    }
-
-    public static ThemeFragment newInstance(int position) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, position);
-        ThemeFragment fragment = new ThemeFragment();
-        fragment.setArguments(args);
-        return fragment;
     }
 }

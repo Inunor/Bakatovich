@@ -17,7 +17,6 @@ import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 
 public class CongratulationFragment extends Fragment {
-    private static final String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
@@ -43,13 +42,5 @@ public class CongratulationFragment extends Fragment {
         });
 
         return v;
-    }
-
-    public static CongratulationFragment newInstance(int position) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, position);
-        CongratulationFragment fragment = new CongratulationFragment();
-        fragment.setArguments(args);
-        return fragment;
     }
 }

@@ -28,12 +28,12 @@ public class WelcomeViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:  return WelcomeFragment.newInstance(data.get(position));
-            case 1:  return DescriptionFragment.newInstance(data.get(position));
-            case 2:  return ThemeFragment.newInstance(data.get(position));
-            case 3:  return LayoutFragment.newInstance(data.get(position));
-            case 4:  return CongratulationFragment.newInstance(data.get(position));
-            default: return WelcomeFragment.newInstance(data.get(position));
+            case 0:  return new WelcomeFragment();
+            case 1:  return new DescriptionFragment();
+            case 2:  return new ThemeFragment();
+            case 3:  return new LayoutFragment();
+            case 4:  return new CongratulationFragment();
+            default: return new WelcomeFragment();
         }
     }
 

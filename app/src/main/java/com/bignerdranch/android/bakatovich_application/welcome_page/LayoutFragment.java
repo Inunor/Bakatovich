@@ -1,24 +1,19 @@
 package com.bignerdranch.android.bakatovich_application.welcome_page;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RadioButton;
 
-import com.bignerdranch.android.bakatovich_application.list.ListActivity;
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
 import com.bignerdranch.android.bakatovich_application.settings.Layout;
 
 public class LayoutFragment extends Fragment {
-    private final static String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
@@ -48,13 +43,5 @@ public class LayoutFragment extends Fragment {
         });
 
         return v;
-    }
-
-    public static LayoutFragment newInstance(int position) {
-        Bundle args = new Bundle();
-        args.putSerializable(ARG_SECTION_NUMBER, position);
-        LayoutFragment fragment = new LayoutFragment();
-        fragment.setArguments(args);
-        return fragment;
     }
 }
