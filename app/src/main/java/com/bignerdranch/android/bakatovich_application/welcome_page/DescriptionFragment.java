@@ -13,22 +13,20 @@ import com.bignerdranch.android.bakatovich_application.R;
 
 
 public class DescriptionFragment extends Fragment {
+    private static final String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.fragment_description, container, false);
-        final Button nextButton = v.findViewById(R.id.next_button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getFragmentManager();
-                Fragment fragment = new ThemeFragment();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).
-                        addToBackStack("theme").commit();
-            }
-        });
-        return v;
+        return inflater.inflate(R.layout.fragment_description, container, false);
+    }
+
+    public static DescriptionFragment newInstance(int position) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, position);
+        DescriptionFragment fragment = new DescriptionFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

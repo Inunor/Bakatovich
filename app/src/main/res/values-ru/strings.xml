@@ -5,13 +5,14 @@
     <string name="profile">Антон Бакатович</string>
     <string name="image">Картинка</string>
     <string name="action_settings">Настройки</string>
-    <string name="next">Дальше</string>
+    <string name="start">Начать</string>
     <string name="greeting">Привет, мой дорогой друг</string>
     <string name="description">Это первоначальная информация о данном приложении</string>
     <string name="light_theme">Светлая тема</string>
     <string name="dark_theme">Тёмная тема</string>
     <string name="standard_layout">Стандартный макет</string>
     <string name="dense_layout">Плотный макет</string>
+    <string name="congratulation">Поздравляем!</string>
     <string name="standard_portrait">Портретная: 4 иконки в ряд</string>
     <string name="standard_landscape">Ландшафтная: 6 иконок в ряд</string>
     <string name="dense_portrait">Портретная: 5 иконок в ряд</string>
@@ -27,4 +28,6 @@
     <string name="theme">Тема</string>
     <string name="layout">Макет</string>
     <string name="settings">Настройки</string>
+    <string name="show_welcome_page">Показать начальную страницу</string>
+    <string name="show_welcome_page_summary">Показать начальную страницу при следующем запуске приложения</string>
 </resources>

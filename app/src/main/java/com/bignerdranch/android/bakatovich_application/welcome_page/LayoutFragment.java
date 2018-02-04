@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment
 import com.bignerdranch.android.bakatovich_application.settings.Layout;
 
 public class LayoutFragment extends Fragment {
-    private final static String IS_STANDARD_LAYOUT = "is_standard_layout";
+    private final static String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
@@ -25,7 +26,6 @@ public class LayoutFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_layout, container, false);
         getActivity().setTheme(SettingsFragment.getTheme(getActivity()));
-        final Button nextButton = v.findViewById(R.id.next_button);
         final RadioButton standardLayoutRadioButton = v.findViewById(R.id.standard_layout_radio);
         final RadioButton denseLayoutRadioButton = v.findViewById(R.id.dense_layout_radio);
 
@@ -47,19 +47,14 @@ public class LayoutFragment extends Fragment {
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!SettingsFragment.hasLayout(getActivity())) {
-                    SettingsFragment.setLayout(Layout.getDefault(), getActivity());
-                }
-                Intent intent = new Intent(view.getContext(), ListActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        | Intent.FLAG_ACTIVITY_NEW_TASK );
-                startActivity(intent);
-            }
-        });
-
         return v;
+    }
+
+    public static LayoutFragment newInstance(int position) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_SECTION_NUMBER, position);
+        LayoutFragment fragment = new LayoutFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

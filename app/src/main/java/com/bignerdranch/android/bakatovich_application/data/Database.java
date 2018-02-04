@@ -25,21 +25,21 @@ public class Database {
     private static String clear;
 
     private interface AppDatabase {
-        static final String TABLE_NAME = "launched";
+        String TABLE_NAME = "launched";
 
         interface Columns extends BaseColumns {
             String FIELD_NUMBER = "number";
             String FIELD_TITLE = "package_name";
         }
 
-        static final String CREATE_TABLE_SCRIPT =
+        String CREATE_TABLE_SCRIPT =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
                         "(" +
                         Columns.FIELD_NUMBER + " NUMBER, " +
                         Columns.FIELD_TITLE + " TEXT" +
                         ")";
 
-        static final String DROP_TABLE_SCRIPT =
+        String DROP_TABLE_SCRIPT =
                 "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
 
@@ -83,7 +83,7 @@ public class Database {
         clear = context.getString(R.string.clear);
     }
 
-    public static void insert(Entry entry) {
+    private static void insert(Entry entry) {
         Log.i(TAG, insert);
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppDatabase.Columns.FIELD_NUMBER, entry.getLaunched());
@@ -100,7 +100,7 @@ public class Database {
         }
     }
 
-    public static void update(Entry entry) {
+    private static void update(Entry entry) {
         Log.i(TAG, update);
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppDatabase.Columns.FIELD_NUMBER, entry.getLaunched());

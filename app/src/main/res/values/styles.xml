@@ -27,8 +27,8 @@
 
     </style>
 
-    <style name="NextButton" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="android:text">@string/next</item>
+    <style name="StartButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:text">@string/start</item>
         <item name="android:layout_marginBottom">@dimen/medium_margin</item>
     </style>
 

@@ -17,13 +17,13 @@ import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment
 import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 public class ThemeFragment extends Fragment {
+    private static final String ARG_SECTION_NUMBER = "section_number";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_theme, container, false);
-        final Button nextButton = v.findViewById(R.id.next_button);
         final LinearLayout lightThemeRadioCover = v.findViewById(R.id.light_theme_radio_cover);
         final LinearLayout darkThemeRadioCover = v.findViewById(R.id.dark_theme_radio_cover);
         final RadioButton lightThemeRadioButton = v.findViewById(R.id.light_theme_radio);
@@ -50,18 +50,14 @@ public class ThemeFragment extends Fragment {
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!SettingsFragment.hasTheme(getActivity())) {
-                    SettingsFragment.setTheme(Theme.getDefault(), getActivity());
-                }
-                FragmentManager fragmentManager = getFragmentManager();
-                Fragment fragment = new LayoutFragment();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).
-                        addToBackStack("layout").commit();
-            }
-        });
         return v;
+    }
+
+    public static ThemeFragment newInstance(int position) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, position);
+        ThemeFragment fragment = new ThemeFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

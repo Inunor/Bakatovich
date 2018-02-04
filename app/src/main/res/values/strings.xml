@@ -7,13 +7,14 @@
     <string name="profile">Anton Bakatovich</string>
     <string name="image">Picture</string>
     <string name="action_settings">Settings</string>
-    <string name="next">Next</string>
+    <string name="start">Start</string>
     <string name="greeting">Hello, my dear friend</string>
     <string name="description">This is basic information about application</string>
     <string name="light_theme">Light theme</string>
     <string name="dark_theme">Dark theme</string>
     <string name="standard_layout">Standard layout</string>
     <string name="dense_layout">Dense layout</string>
+    <string name="congratulation">Congratulations!</string>
     <string name="standard_portrait">Portrait: 4 icons in a row</string>
     <string name="standard_landscape">Landscape: 6 icons in a row</string>
     <string name="dense_portrait">Portrait: 5 icons in a row</string>
@@ -24,6 +25,13 @@
     <string name="list">List</string>
     <string name="delete">Delete</string>
     <string name="launched_count">Launched: </string>
+
+    <!-- PagerStrip titles -->
+    <string name="welcome_title">Welcome</string>
+    <string name="description_title">Description</string>
+    <string name="theme_title">Theme</string>
+    <string name="layout_title">Layout</string>
+    <string name="congratulation_title">Congratulation</string>
 
     <string name="some_text" translatable="false">
         On this site you will find versions of some classics of early modern philosophy,
@@ -58,13 +66,13 @@
     <string name="deleted_item" translatable="false">Deleted item: </string>
 
     <!-- Log Database -->
-    <string name="insert">insert</string>
-    <string name="update">update</string>
-    <string name="get">get</string>
-    <string name="remove">remove</string>
-    <string name="clear">clear</string>
-    <string name="failed_to">failed to</string>
-    <string name="or">or</string>
+    <string name="insert" translatable="false">insert</string>
+    <string name="update" translatable="false">update</string>
+    <string name="get" translatable="false">get</string>
+    <string name="remove" translatable="false">remove</string>
+    <string name="clear" translatable="false">clear</string>
+    <string name="failed_to" translatable="false">failed to</string>
+    <string name="or" translatable="false">or</string>
 
     <!-- Settings -->
     <string name="theme">Theme</string>
