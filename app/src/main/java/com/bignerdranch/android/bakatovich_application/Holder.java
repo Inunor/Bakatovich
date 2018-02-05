@@ -4,8 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bignerdranch.android.bakatovich_application.R;
-
 
 public class Holder {
 
@@ -17,8 +15,8 @@ public class Holder {
         public GridHolder(final View view) {
             super(view);
 
-            imageView = view.findViewById(R.id.launcher_image);
-            textView = view.findViewById(R.id.launcher_text);
+            imageView = view.findViewById(R.id.grid_image);
+            textView = view.findViewById(R.id.grid_text);
         }
 
         public View getImageView() {
@@ -48,27 +46,6 @@ public class Holder {
 
         public TextView getTitle() {
             return title;
-        }
-    }
-
-    public static class ApplicationHolder extends RecyclerView.ViewHolder {
-
-        private final View imageView;
-        private final TextView textView;
-
-        public ApplicationHolder(final View view) {
-            super(view);
-
-            imageView = view.findViewById(R.id.application_image);
-            textView = view.findViewById(R.id.application_text);
-        }
-
-        public View getImageView() {
-            return imageView;
-        }
-
-        public TextView getTextView() {
-            return textView;
         }
     }
 }

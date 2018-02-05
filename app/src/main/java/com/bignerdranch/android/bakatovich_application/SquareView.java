@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application.launcher;
+package com.bignerdranch.android.bakatovich_application;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.bakatovich_application.application;
+package com.bignerdranch.android.bakatovich_application.launcher;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,36 +9,30 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.bignerdranch.android.bakatovich_application.MainActivity;
+import com.bignerdranch.android.bakatovich_application.OffsetItemDecoration;
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Database;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
-import com.bignerdranch.android.bakatovich_application.launcher.LauncherActivity;
-import com.bignerdranch.android.bakatovich_application.launcher.OffsetItemDecoration;
-import com.bignerdranch.android.bakatovich_application.list.ListActivity;
-import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
+import com.bignerdranch.android.bakatovich_application.launcher.adapters.GridAdapter;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ApplicationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class GridFragment extends Fragment {
 
     private List<Entry> data = new ArrayList<>();
-    private ApplicationAdapter applicationAdapter;
+    private GridAdapter gridAdapter;
     private String TAG;
     private final String DATA_THEME = "package";
     private BroadcastReceiver monitor = new BroadcastReceiver() {
@@ -56,7 +50,7 @@ public class ApplicationActivity extends AppCompatActivity
                     default:
                         return;
                 }
-                applicationAdapter.notifyDataSetChanged();
+                gridAdapter.notifyDataSetChanged();
             }
         }
 
@@ -83,77 +77,52 @@ public class ApplicationActivity extends AppCompatActivity
         }
     };
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(SettingsFragment.getTheme(this));
-        super.onCreate(savedInstanceState);
-        Database.initialize(this);
-        setContentView(R.layout.activity_application);
-        TAG = getString(R.string.title_activity_application);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_application);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        final View navigationHeaderView = navigationView.getHeaderView(0);
-        final View profileImage = navigationHeaderView.findViewById(R.id.avatar);
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ApplicationActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        | Intent.FLAG_ACTIVITY_NEW_TASK );
-                startActivity(intent);
-            }
-        });
-
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         createGridLayout();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
         intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
         intentFilter.addDataScheme(DATA_THEME);
-        registerReceiver(monitor, intentFilter);
+        getContext().registerReceiver(monitor, intentFilter);
 
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
-        unregisterReceiver(monitor);
+        getContext().unregisterReceiver(monitor);
         for (Entry entry : data) {
             Database.insertOrUpdate(entry);
         }
     }
 
     private void createGridLayout() {
-        final RecyclerView recyclerView = findViewById(R.id.application_content);
+        final RecyclerView recyclerView = getActivity().findViewById(R.id.launcher_content);
         recyclerView.setHasFixedSize(true);
         final int offset = getResources().getDimensionPixelSize(R.dimen.item_offset);
         recyclerView.addItemDecoration(new OffsetItemDecoration(offset));
 
-        final int spanCount = getResources().getInteger(SettingsFragment.getLayoutColumn(this));
-        final GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
+        final int spanCount = getResources().getInteger(SettingsFragment.getLayoutColumn(getActivity()));
+        final GridLayoutManager layoutManager = new GridLayoutManager(getContext(), spanCount);
         recyclerView.setLayoutManager(layoutManager);
 
         generateData();
-        applicationAdapter = new ApplicationAdapter(data, getApplicationContext(), DATA_THEME);
-        recyclerView.setAdapter(applicationAdapter);
+        gridAdapter = new GridAdapter(data, getContext(), DATA_THEME);
+        recyclerView.setAdapter(gridAdapter);
     }
 
     public void generateData() {
-        PackageManager packageManager = getPackageManager();
+        PackageManager packageManager = getContext().getPackageManager();
         List<ApplicationInfo> applicationInfoList = packageManager.getInstalledApplications(0);
         for (ApplicationInfo applicationInfo : applicationInfoList) {
             try {
@@ -171,45 +140,10 @@ public class ApplicationActivity extends AppCompatActivity
     }
 
     private Entry getEntryFromPackageName(final String packageName) throws PackageManager.NameNotFoundException {
-        final PackageManager packageManager = getPackageManager();
+        final PackageManager packageManager = getContext().getPackageManager();
         final String name = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA));
         final long updatedTime = packageManager.getPackageInfo(packageName, 0).lastUpdateTime;
         final Drawable icon = packageManager.getApplicationIcon(packageName);
         return new Entry(name, packageName, updatedTime, icon);
     }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_application);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        Intent intent;
-        int id = item.getItemId();
-
-        if (id == R.id.nav_grid) {
-            intent = new Intent(this, LauncherActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (id == R.id.nav_list) {
-            intent = new Intent(this, ListActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (id == R.id.nav_settings) {
-            intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_application);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
 }

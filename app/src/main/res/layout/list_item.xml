@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
 
-        <com.bignerdranch.android.bakatovich_application.launcher.SquareView
+        <com.bignerdranch.android.bakatovich_application.SquareView
             android:id="@+id/list_image"
             android:layout_width="40dp"
             android:layout_height="wrap_content"

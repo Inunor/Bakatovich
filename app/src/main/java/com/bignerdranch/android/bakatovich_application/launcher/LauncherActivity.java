@@ -1,26 +1,22 @@
 package com.bignerdranch.android.bakatovich_application.launcher;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.bignerdranch.android.bakatovich_application.application.ApplicationActivity;
 import com.bignerdranch.android.bakatovich_application.MainActivity;
 import com.bignerdranch.android.bakatovich_application.R;
-import com.bignerdranch.android.bakatovich_application.data.DataStorage;
-import com.bignerdranch.android.bakatovich_application.data.Item;
-import com.bignerdranch.android.bakatovich_application.list.ListActivity;
+import com.bignerdranch.android.bakatovich_application.data.Database;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
 
@@ -28,16 +24,17 @@ import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment
 public class LauncherActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private LauncherAdapter launcherAdapter;
-    private DataStorage dataStorage;
-    private String TAG;
+    FragmentManager fragmentManager;
+    Fragment fragment;
+    Fragment gridFragment;
+    Fragment listFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(SettingsFragment.getTheme(this));
         super.onCreate(savedInstanceState);
+        Database.initialize(this);
         setContentView(R.layout.activity_launcher);
-        TAG = getString(R.string.title_activity_launcher);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -63,35 +60,18 @@ public class LauncherActivity extends AppCompatActivity
             }
         });
 
+        gridFragment = new GridFragment();
+        listFragment = new ListFragment();
 
-        dataStorage = DataStorage.get();
-        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Item item = dataStorage.pushFront();
-                launcherAdapter.notifyDataSetChanged();
-                if (Log.isLoggable(TAG, Log.INFO)) {
-                    Log.i(TAG, getString(R.string.add_new_item) + item.getColor());
-                }
-            }
-        });
+        fragmentManager = getSupportFragmentManager();
+        fragment = fragmentManager.findFragmentById(R.id.drawer_layout_launcher);
 
-        createGridLayout();
-    }
-
-    private void createGridLayout() {
-        final RecyclerView recyclerView = findViewById(R.id.launcher_content);
-        recyclerView.setHasFixedSize(true);
-        final int offset = getResources().getDimensionPixelSize(R.dimen.item_offset);
-        recyclerView.addItemDecoration(new OffsetItemDecoration(offset));
-
-        final int spanCount = getResources().getInteger(SettingsFragment.getLayoutColumn(this));
-        final GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
-        recyclerView.setLayoutManager(layoutManager);
-
-        launcherAdapter = new LauncherAdapter(dataStorage.getData(), getApplicationContext());
-        recyclerView.setAdapter(launcherAdapter);
+        if (fragment == null) {
+            fragment = gridFragment;
+            fragmentManager.beginTransaction()
+                    .add(R.id.drawer_layout_launcher, fragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -110,15 +90,16 @@ public class LauncherActivity extends AppCompatActivity
         Intent intent;
         int id = item.getItemId();
 
-        if (id == R.id.nav_list) {
-            intent = new Intent(this, ListActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (id == R.id.nav_application_grid) {
-            intent = new Intent(this, ApplicationActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (id == R.id.nav_settings) {
+        if (id == R.id.nav_grid) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.drawer_layout_launcher, gridFragment)
+                    .commit();
+        } else if (id == R.id.nav_list) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.drawer_layout_launcher, listFragment)
+                    .commit();
+        }
+        if (id == R.id.nav_settings) {
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         }

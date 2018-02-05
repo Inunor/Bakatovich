@@ -27,15 +27,6 @@
         <activity
             android:name=".launcher.LauncherActivity"
             android:label="@string/title_activity_launcher"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".list.ListActivity"
-            android:label="@string/title_activity_list"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity
-            android:name=".application.ApplicationActivity"
-            android:label="@string/title_activity_application"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity

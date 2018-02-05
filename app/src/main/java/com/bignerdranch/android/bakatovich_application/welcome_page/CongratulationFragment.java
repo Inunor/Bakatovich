@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.bignerdranch.android.bakatovich_application.R;
-import com.bignerdranch.android.bakatovich_application.list.ListActivity;
+import com.bignerdranch.android.bakatovich_application.launcher.LauncherActivity;
 import com.bignerdranch.android.bakatovich_application.settings.Layout;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
 import com.bignerdranch.android.bakatovich_application.settings.Theme;
@@ -34,7 +34,7 @@ public class CongratulationFragment extends Fragment {
                 if (!SettingsFragment.hasLayout(getActivity())) {
                     SettingsFragment.setLayout(Layout.getDefault(), getActivity());
                 }
-                Intent intent = new Intent(view.getContext(), ListActivity.class);
+                Intent intent = new Intent(view.getContext(), LauncherActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
                         | Intent.FLAG_ACTIVITY_NEW_TASK );
                 startActivity(intent);
