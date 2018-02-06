@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <com.bignerdranch.android.bakatovich_application.SquareView
+            android:id="@+id/list_image"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/extra_small_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/circle"
+            android:contentDescription="@string/image" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="false"
+                android:textSize="@dimen/medium_font"
+                android:textColor="@android:color/black"
+                android:lines="1" />
+
+            <TextView
+                android:id="@+id/list_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/list_content_font"
+                android:text=""
+                android:maxLines="2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

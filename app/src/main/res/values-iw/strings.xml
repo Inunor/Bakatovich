@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="surname">Bakatowi</string>
+    <string name="name">אנטון</string>
+    <string name="profile">אנטון באקאטובי</string>
+    <string name="image">תמונה</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="start">התחל</string>
+    <string name="greeting">שלום, ידידי היקר</string>
+    <string name="description">זהו המידע הראשוני על יישום זה</string>
+    <string name="light_theme">נושא קל</string>
+    <string name="dark_theme">נושא כהה</string>
+    <string name="standard_layout">פריסה רגילה</string>
+    <string name="dense_layout">פריסה צפופה</string>
+    <string name="congratulation">מזל טוב!</string>
+    <string name="standard_portrait">דיוקן: 4 סמלים בשורה</string>
+    <string name="standard_landscape">נוף: 6 סמלים בשורה</string>
+    <string name="dense_portrait">דיוקן: 5 סמלים ברצף</string>
+    <string name="dense_landscape">גינון: 7 סמלים ברציפות</string>
+    <string name="delete">הסר</string>
+    <string name="launched_count">זמן ריצה: </string>
+    <string name="information">מידע</string>
+
+    <!-- PagerStrip titles -->
+    <string name="welcome_title">ברוך הבא</string>
+    <string name="description_title">תיאור</string>
+    <string name="theme_title">נושא</string>
+    <string name="layout_title">מַעֲרָך</string>
+    <string name="congratulation_title">מזל טוב</string>
+
+    <!-- Navigation menu -->
+    <string name="navigation_drawer_open">פתח את מגירת הניווט</string>
+    <string name="navigation_drawer_close">סגור את מגירת הניווט</string>
+    <string name="title_activity_settings">פעילות הגדרות</string>
+    <string name="title_activity_launcher">פעילות מפעיל</string>
+    <string name="grid">רשת</string>
+    <string name="list">רשימה של</string>
+
+    <!-- Settings -->
+    <string name="theme">נושא</string>
+    <string name="layout">פריסה</string>
+    <string name="settings">הגדרות</string>
+    <string name="show_welcome_page">הצג דף פתיחה</string>
+    <string name="show_welcome_page_summary">הצג את דף הפתיחה בפעם הבאה שתפעיל את היישום</string>
+    <string name="sort">מיון</string>
+    <string name="without_sorting">ללא מיון</string>
+    <string name="by_installation_date">לפי תאריך ההתקנה</string>
+    <string name="direct_alphabet">סדר ישיר של האלפבית</string>
+    <string name="reverse_alphabet">סדר הפוך של האלפבית</string>
+    <string name="by_launched">לפי מספר שיגורים</string>
+    <string name="choose_sort">בחר מיון</string>
+</resources>

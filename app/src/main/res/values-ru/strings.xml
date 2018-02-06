@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="surname">Бакатович</string>
+    <string name="name">Антон</string>
+    <string name="profile">Антон Бакатович</string>
+    <string name="image">Картинка</string>
+    <string name="action_settings">Настройки</string>
+    <string name="start">Начать</string>
+    <string name="greeting">Привет, мой дорогой друг</string>
+    <string name="description">Это первоначальная информация о данном приложении</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="dark_theme">Тёмная тема</string>
+    <string name="standard_layout">Стандартный макет</string>
+    <string name="dense_layout">Плотный макет</string>
+    <string name="congratulation">Поздравляем!</string>
+    <string name="standard_portrait">Портретная: 4 иконки в ряд</string>
+    <string name="standard_landscape">Ландшафтная: 6 иконок в ряд</string>
+    <string name="dense_portrait">Портретная: 5 иконок в ряд</string>
+    <string name="dense_landscape">Ландшафтная: 7 иконок в ряд</string>
+    <string name="delete">Удалить</string>
+    <string name="launched_count">Запущено раз: </string>
+    <string name="information">Информация</string>
+
+    <!-- PagerStrip titles -->
+    <string name="welcome_title">Добро пожаловать</string>
+    <string name="description_title">Описание</string>
+    <string name="theme_title">Темы</string>
+    <string name="layout_title">Макеты</string>
+    <string name="congratulation_title">Поздравления</string>
+
+    <!-- Navigation menu -->
+    <string name="navigation_drawer_open">Открыть навигационную панель</string>
+    <string name="navigation_drawer_close">Закрыть навигационную панель</string>
+    <string name="title_activity_settings">Актививность Настроек</string>
+    <string name="title_activity_launcher">Активность лаунчера</string>
+    <string name="grid">Сетка</string>
+    <string name="list">Список</string>
+
+    <!-- Settings -->
+    <string name="theme">Тема</string>
+    <string name="layout">Макет</string>
+    <string name="settings">Настройки</string>
+    <string name="show_welcome_page">Показать начальную страницу</string>
+    <string name="show_welcome_page_summary">Показать начальную страницу при следующем запуске приложения</string>
+    <string name="sort">Сортировка</string>
+    <string name="without_sorting">Без сортировки</string>
+    <string name="by_installation_date">По дате установки</string>
+    <string name="direct_alphabet">От А до Я</string>
+    <string name="reverse_alphabet">От Я до А</string>
+    <string name="by_launched">По количеству запусков</string>
+    <string name="choose_sort">Выберите сортировку</string>
+</resources>

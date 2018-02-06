@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- THEME -->
+    <string-array name="theme_entries">
+        <item>@string/light_theme</item>
+        <item>@string/dark_theme</item>
+    </string-array>
+
+    <string-array name="theme_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- LAYOUT -->
+    <string-array name="layout_entries">
+        <item>@string/standard_layout</item>
+        <item>@string/dense_layout</item>
+    </string-array>
+
+    <string-array name="layout_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- SORT -->
+    <string-array name="sort_entries" translatable="false">
+        <item>@string/without_sorting</item>
+        <item>@string/by_installation_date</item>
+        <item>@string/direct_alphabet</item>
+        <item>@string/reverse_alphabet</item>
+        <item>@string/by_launched</item>
+    </string-array>
+
+    <string-array name="sort_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+</resources>

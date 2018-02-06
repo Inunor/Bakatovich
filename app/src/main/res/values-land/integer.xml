@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="standard_count">6</integer>
+    <integer name="dense_count">7</integer>
+    <integer name="span_count">6</integer>
+</resources>

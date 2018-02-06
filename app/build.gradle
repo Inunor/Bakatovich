@@ -24,7 +24,7 @@ android {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storeFile project.rootProject.file(keystoreProperties['storeFile'])
-            storePassword  keystoreProperties['storePassword']
+            storePassword keystoreProperties['storePassword']
         }
     }
     compileSdkVersion 26
@@ -32,8 +32,8 @@ android {
         applicationId "com.bignerdranch.android.bakatovich_application"
         minSdkVersion 22
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [HOCKEYAPP_APP_ID: "c21da4f96513481cb7813f3e397d4546"]
     }
@@ -47,6 +47,12 @@ android {
     }
 }
 
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -57,6 +63,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
-    compile 'net.hockeyapp.android:HockeySDK:5.1.0'
+        compile 'net.hockeyapp.android:HockeySDK:5.1.0'
     }
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
