@@ -9,8 +9,10 @@ import com.bignerdranch.android.bakatovich_application.R;
 
 
 public class SettingsActivity extends AppCompatActivity {
+    // передавать потом через newInstance
     private static final String THEME_KEY = "theme";
     private static final String LAYOUT_KEY = "layout";
+    private static final String SORT_KEY = "sort";
     private static final String WELCOME_PAGE_KEY = "welcome_page";
 
     @Override
@@ -34,5 +36,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static String getWelcomePageKey() {
         return WELCOME_PAGE_KEY;
+    }
+
+    public static String getSortKey() {
+        return SORT_KEY;
     }
 }

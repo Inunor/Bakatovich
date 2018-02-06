@@ -32,12 +32,14 @@ public class Holder {
 
         private final View imageView;
         private final TextView title;
+        private final TextView text;
 
         public ListHolder(final View view) {
             super(view);
 
             imageView = view.findViewById(R.id.list_image);
             title = view.findViewById(R.id.list_title);
+            text = view.findViewById(R.id.list_text);
         }
 
         public View getImageView() {
@@ -46,6 +48,10 @@ public class Holder {
 
         public TextView getTitle() {
             return title;
+        }
+
+        public TextView getText() {
+            return text;
         }
     }
 }

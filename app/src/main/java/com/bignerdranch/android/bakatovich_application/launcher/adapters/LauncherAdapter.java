@@ -1,8 +1,10 @@
 package com.bignerdranch.android.bakatovich_application.launcher.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -18,13 +20,12 @@ public abstract class LauncherAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @NonNull
     protected final List<Entry> data;
-    protected final Context context;
-    private final String DATA_THEME;
+    protected final Activity activity;
+    private final String DATA_THEME = "package";
 
-    public LauncherAdapter(@NonNull final List<Entry> data, final Context context, final String DATA_THEME) {
+    public LauncherAdapter(@NonNull final List<Entry> data, final Activity activity) {
         this.data = data;
-        this.context = context;
-        this.DATA_THEME = DATA_THEME;
+        this.activity = activity;
     }
 
     protected void showPopUpMenu(final View view, final int position) {
@@ -39,6 +40,11 @@ public abstract class LauncherAdapter extends RecyclerView.Adapter<RecyclerView.
                 switch(menuItem.getItemId()) {
                     case R.id.nav_delete:
                         Intent intent = new Intent(Intent.ACTION_DELETE);
+                        intent.setData(Uri.parse(DATA_THEME + ":" + data.get(position).getPackageName()));
+                        view.getContext().startActivity(intent);
+                        break;
+                    case R.id.info:
+                        intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                         intent.setData(Uri.parse(DATA_THEME + ":" + data.get(position).getPackageName()));
                         view.getContext().startActivity(intent);
                         break;

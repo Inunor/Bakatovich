@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/list_content_font"
-                android:text="@string/some_text"
+                android:text=""
                 android:maxLines="2" />
 
         </LinearLayout>

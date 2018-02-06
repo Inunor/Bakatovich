@@ -20,6 +20,14 @@
             android:entries="@array/layout_entries"
             android:entryValues="@array/layout_values" />
 
+        <ListPreference
+            android:key="@string/sort_key"
+            android:title="@string/sort"
+            android:summary="Choose sort"
+            android:defaultValue="0"
+            android:entries="@array/sort_entries"
+            android:entryValues="@array/sort_values" />
+
         <SwitchPreference
             android:key="@string/welcome_page_key"
             android:title="@string/show_welcome_page"

@@ -1,6 +1,7 @@
 package com.bignerdranch.android.bakatovich_application.launcher.adapters;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -21,9 +22,9 @@ public class ListAdapter extends LauncherAdapter {
 
     private final String TAG;
 
-    public ListAdapter(@NonNull final List<Entry> data, final Context context, final String DATA_THEME) {
-        super(data, context, DATA_THEME);
-        TAG = context.getString(R.string.title_application_adapter);
+    public ListAdapter(@NonNull final List<Entry> data, final Activity activity) {
+        super(data, activity);
+        TAG = activity.getString(R.string.title_application_adapter);
     }
 
     @Override
@@ -39,16 +40,18 @@ public class ListAdapter extends LauncherAdapter {
 
     private void bindListView(@NonNull final Holder.ListHolder listHolder, final int position) {
         final View view = listHolder.getImageView();
-        final TextView textView = listHolder.getTitle();
+        final TextView title = listHolder.getTitle();
+        final TextView text = listHolder.getText();
         view.setBackground(data.get(position).getIcon());
-        textView.setText(data.get(position).getName());
+        title.setText(data.get(position).getName());
+        text.setText(data.get(position).getPackageName());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(data.get(position).getPackageName());
+                Intent launchIntent = activity.getPackageManager().getLaunchIntentForPackage(data.get(position).getPackageName());
                 if (launchIntent != null) {
-                    context.startActivity(launchIntent);
+                    activity.startActivity(launchIntent);
                     data.get(position).updateLaunched();
                     Database.insertOrUpdate(data.get(position));
                 }

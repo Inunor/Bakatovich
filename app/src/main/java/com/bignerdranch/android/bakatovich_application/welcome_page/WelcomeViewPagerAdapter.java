@@ -15,7 +15,7 @@ public class WelcomeViewPagerAdapter extends FragmentPagerAdapter {
 
     @NonNull
     private final List<Integer> data;
-    Context context;
+    private Context context;
 
     public WelcomeViewPagerAdapter(@NonNull final FragmentManager fm,
                                    @NonNull final List<Integer> data,

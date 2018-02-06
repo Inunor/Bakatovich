@@ -1,35 +1,87 @@
 package com.bignerdranch.android.bakatovich_application.launcher;
 
-import android.support.v4.app.Fragment;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.bignerdranch.android.bakatovich_application.MainActivity;
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Database;
+import com.bignerdranch.android.bakatovich_application.data.Entry;
+import com.bignerdranch.android.bakatovich_application.data.EntryStorage;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
+
+import java.util.Collections;
 
 
 public class LauncherActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    FragmentManager fragmentManager;
-    Fragment fragment;
-    Fragment gridFragment;
-    Fragment listFragment;
+    public static RecyclerView.Adapter launcherAdapter;
+    private final String DATA_THEME = "package";
 
-    @Override
+    private BroadcastReceiver monitor = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("TAG", "AAAAAAAAAAAAAAAAA");
+            String action = intent.getAction();
+            if (action != null) {
+                switch (action) {
+                    case Intent.ACTION_PACKAGE_ADDED:
+                        appAdded(intent);
+                        break;
+                    case Intent.ACTION_PACKAGE_REMOVED:
+                        appRemoved(intent);
+                        break;
+                    default:
+                        return;
+                }
+                Collections.sort(EntryStorage.getData(), SettingsFragment.getSortMethod(LauncherActivity.this));
+                if (launcherAdapter != null) {
+                    launcherAdapter.notifyDataSetChanged();
+                }
+            }
+        }
+
+        private void appAdded(final Intent intent) {
+            String packageName = Uri.parse(intent.getDataString()).getSchemeSpecificPart();
+            try {
+                Entry entry = EntryStorage.getEntryFromPackageName(packageName, LauncherActivity.this);
+                EntryStorage.addEntry(entry);
+                Database.insertOrUpdate(entry);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void appRemoved(final Intent intent) {
+            for (Entry entry : EntryStorage.getData()) {
+                String packageName = Uri.parse(intent.getDataString()).getSchemeSpecificPart();
+                if (packageName.equals(entry.getPackageName())) {
+                    EntryStorage.removeEntry(entry);
+                    Database.remove(entry);
+                    break;
+                }
+            }
+        }
+    };
+
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(SettingsFragment.getTheme(this));
         super.onCreate(savedInstanceState);
@@ -38,7 +90,7 @@ public class LauncherActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -60,23 +112,50 @@ public class LauncherActivity extends AppCompatActivity
             }
         });
 
-        gridFragment = new GridFragment();
-        listFragment = new ListFragment();
+        EntryStorage.generateData(this);
+        Collections.sort(EntryStorage.getData(), SettingsFragment.getSortMethod(LauncherActivity.this));
+        if (savedInstanceState == null) {
+            setGridLayoutFragment();
+        }
+    }
 
-        fragmentManager = getSupportFragmentManager();
-        fragment = fragmentManager.findFragmentById(R.id.drawer_layout_launcher);
+    private void setGridLayoutFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        GridFragment fragment = new GridFragment();
+        fragmentManager.beginTransaction()
+                .replace(R.id.launcher_fragment_container, fragment).commit();
+    }
 
-        if (fragment == null) {
-            fragment = gridFragment;
-            fragmentManager.beginTransaction()
-                    .add(R.id.drawer_layout_launcher, fragment)
-                    .commit();
+    private void setListLayoutFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        ListFragment fragment = new ListFragment();
+        fragmentManager.beginTransaction()
+                .replace(R.id.launcher_fragment_container, fragment).commit();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        intentFilter.addDataScheme(DATA_THEME);
+        registerReceiver(monitor, intentFilter);
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        unregisterReceiver(monitor);
+        for (Entry entry : EntryStorage.getData()) {
+            Database.insertOrUpdate(entry);
         }
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -91,20 +170,17 @@ public class LauncherActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_grid) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.drawer_layout_launcher, gridFragment)
-                    .commit();
+            setGridLayoutFragment();
         } else if (id == R.id.nav_list) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.drawer_layout_launcher, listFragment)
-                    .commit();
+            setListLayoutFragment();
         }
         if (id == R.id.nav_settings) {
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
+            finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_launcher);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

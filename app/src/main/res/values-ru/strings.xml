@@ -23,6 +23,14 @@
     <string name="list">Список</string>
     <string name="delete">Удалить</string>
     <string name="launched_count">Запущено раз: </string>
+    <string name="information">Информация</string>
+
+    <!-- PagerStrip titles -->
+    <string name="welcome_title">Добро пожаловать</string>
+    <string name="description_title">Описание</string>
+    <string name="theme_title">Темы</string>
+    <string name="layout_title">Макеты</string>
+    <string name="congratulation_title">Поздравления</string>
 
     <!-- Settings -->
     <string name="theme">Тема</string>
@@ -30,4 +38,5 @@
     <string name="settings">Настройки</string>
     <string name="show_welcome_page">Показать начальную страницу</string>
     <string name="show_welcome_page_summary">Показать начальную страницу при следующем запуске приложения</string>
+    <string name="sort">Сортировка</string>
 </resources>

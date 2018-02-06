@@ -7,9 +7,13 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
 import com.bignerdranch.android.bakatovich_application.R;
+import com.bignerdranch.android.bakatovich_application.data.Entry;
+import com.bignerdranch.android.bakatovich_application.launcher.LauncherComparator;
 import com.bignerdranch.android.bakatovich_application.settings.Layout;
 import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
 import com.bignerdranch.android.bakatovich_application.settings.Theme;
+
+import java.util.Comparator;
 
 
 public class SettingsFragment extends PreferenceFragment {
@@ -28,12 +32,11 @@ public class SettingsFragment extends PreferenceFragment {
                (!sharedPreferences.getBoolean(SettingsActivity.getWelcomePageKey(), false));
     }
 
-    /*public static void setWelcomePageValue(final boolean value, final Activity activity) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(SettingsActivity.getWelcomePageKey(), value);
-        editor.apply();
-    }*/
+    public static Comparator<Entry> getSortMethod(Activity activity) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        String code = preferences.getString(SettingsActivity.getSortKey(), LauncherComparator.getLAUNCHED());
+        return LauncherComparator.getMethod(code);
+    }
 
     public static int getTheme(final Activity activity) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);

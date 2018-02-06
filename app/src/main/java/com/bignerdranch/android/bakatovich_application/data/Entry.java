@@ -1,13 +1,21 @@
 package com.bignerdranch.android.bakatovich_application.data;
 
 
+import android.app.Activity;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+
+import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
+
+import java.util.Collections;
+import java.util.List;
 
 public class Entry {
     private String name;
     private String packageName;
-    private long updateTime;
-    private long launched;
+    private Long updateTime;
+    private Integer launched;
     private Drawable icon;
 
     public Entry(final String name, final String packageName, final long updateTime, final Drawable icon) {
@@ -26,11 +34,11 @@ public class Entry {
         return packageName;
     }
 
-    public long getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public long getLaunched() {
+    public Integer getLaunched() {
         return launched;
     }
 
