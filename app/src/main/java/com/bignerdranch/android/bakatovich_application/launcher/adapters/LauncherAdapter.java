@@ -1,7 +1,7 @@
 package com.bignerdranch.android.bakatovich_application.launcher.adapters;
 
+
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.Settings;
@@ -15,6 +15,7 @@ import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
 
 import java.util.List;
+
 
 public abstract class LauncherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

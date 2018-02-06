@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application;
 
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
+
 
 public class MainActivity extends AppCompatActivity {
 

@@ -50,6 +50,7 @@
     <string name="direct_alphabet">From A to Z</string>
     <string name="reverse_alphabet">From Z to A</string>
     <string name="by_launched">By launched</string>
+    <string name="choose_sort">Choose sort</string>
 
     <!-- Preferences key -->
     <string name="theme_key" translatable="false">theme</string>

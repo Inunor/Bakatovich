@@ -1,8 +1,10 @@
 package com.bignerdranch.android.bakatovich_application;
 
+
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
 
 public class OffsetItemDecoration extends RecyclerView.ItemDecoration {
 

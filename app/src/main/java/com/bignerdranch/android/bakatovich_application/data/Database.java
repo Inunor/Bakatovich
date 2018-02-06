@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.data;
 
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
-import android.util.Log;
-
-import com.bignerdranch.android.bakatovich_application.R;
 
 
 public class Database {
@@ -180,5 +178,4 @@ public class Database {
            e.printStackTrace();
         }
     }
-
 }

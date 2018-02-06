@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.welcome_page;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

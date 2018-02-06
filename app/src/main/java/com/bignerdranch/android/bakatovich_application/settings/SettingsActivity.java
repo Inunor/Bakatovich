@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.settings;
 
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -9,7 +10,6 @@ import com.bignerdranch.android.bakatovich_application.R;
 
 
 public class SettingsActivity extends AppCompatActivity {
-    // передавать потом через newInstance
     private static final String THEME_KEY = "theme";
     private static final String LAYOUT_KEY = "layout";
     private static final String SORT_KEY = "sort";

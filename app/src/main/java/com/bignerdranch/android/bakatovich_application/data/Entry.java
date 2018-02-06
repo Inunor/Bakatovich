@@ -1,15 +1,8 @@
 package com.bignerdranch.android.bakatovich_application.data;
 
 
-import android.app.Activity;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 
-import com.bignerdranch.android.bakatovich_application.settings.SettingsFragment;
-
-import java.util.Collections;
-import java.util.List;
 
 public class Entry {
     private String name;

@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.settings;
 
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,9 +10,6 @@ import android.preference.PreferenceManager;
 import com.bignerdranch.android.bakatovich_application.R;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
 import com.bignerdranch.android.bakatovich_application.launcher.LauncherComparator;
-import com.bignerdranch.android.bakatovich_application.settings.Layout;
-import com.bignerdranch.android.bakatovich_application.settings.SettingsActivity;
-import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 import java.util.Comparator;
 
@@ -23,7 +21,6 @@ public class SettingsFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
     }
-
 
     public static boolean isAllSettings(final Activity activity) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
@@ -73,6 +70,4 @@ public class SettingsFragment extends PreferenceFragment {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
         return sharedPreferences.contains( SettingsActivity.getLayoutKey() );
     }
-
-
 }

@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.launcher;
 
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
@@ -15,7 +16,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -105,8 +105,6 @@ public class LauncherActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
-               /* intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        | Intent.FLAG_ACTIVITY_NEW_TASK );*/
                 startActivity(intent);
             }
         });

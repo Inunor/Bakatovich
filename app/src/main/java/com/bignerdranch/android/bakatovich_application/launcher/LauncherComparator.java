@@ -5,6 +5,7 @@ import com.bignerdranch.android.bakatovich_application.data.Entry;
 
 import java.util.Comparator;
 
+
 public class LauncherComparator {
     private final static String NO_SORT = "0";
     private final static String DATE = "1";

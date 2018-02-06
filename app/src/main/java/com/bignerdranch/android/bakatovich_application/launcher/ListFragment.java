@@ -1,5 +1,6 @@
 package com.bignerdranch.android.bakatovich_application.launcher;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

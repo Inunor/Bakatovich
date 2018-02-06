@@ -1,7 +1,7 @@
 package com.bignerdranch.android.bakatovich_application.settings;
 
-
 import com.bignerdranch.android.bakatovich_application.R;
+
 
 public class Layout {
     private static final String STANDARD = "0";

@@ -6,9 +6,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class EntryStorage {
     private static ArrayList<Entry> data = new ArrayList<>();

@@ -2,6 +2,7 @@ package com.bignerdranch.android.bakatovich_application.settings;
 
 import com.bignerdranch.android.bakatovich_application.R;
 
+
 public class Theme {
     private static final String LIGHT = "0";
     private static final String DARK  = "1";

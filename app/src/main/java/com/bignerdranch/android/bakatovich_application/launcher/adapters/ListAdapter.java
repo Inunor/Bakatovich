@@ -2,7 +2,6 @@ package com.bignerdranch.android.bakatovich_application.launcher.adapters;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +16,7 @@ import com.bignerdranch.android.bakatovich_application.data.Database;
 import com.bignerdranch.android.bakatovich_application.data.Entry;
 
 import java.util.List;
+
 
 public class ListAdapter extends LauncherAdapter {
 
@@ -68,5 +68,4 @@ public class ListAdapter extends LauncherAdapter {
     public int getItemCount() {
         return data.size();
     }
-
 }
