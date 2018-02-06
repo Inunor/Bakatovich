@@ -17,10 +17,6 @@
     <string name="standard_landscape">Ландшафтная: 6 иконок в ряд</string>
     <string name="dense_portrait">Портретная: 5 иконок в ряд</string>
     <string name="dense_landscape">Ландшафтная: 7 иконок в ряд</string>
-    <string name="delete_item">Удалить элемент?</string>
-    <string name="yes">Да</string>
-    <string name="grid">Сетка</string>
-    <string name="list">Список</string>
     <string name="delete">Удалить</string>
     <string name="launched_count">Запущено раз: </string>
     <string name="information">Информация</string>
@@ -32,6 +28,14 @@
     <string name="layout_title">Макеты</string>
     <string name="congratulation_title">Поздравления</string>
 
+    <!-- Navigation menu -->
+    <string name="navigation_drawer_open">Открыть навигационную панель</string>
+    <string name="navigation_drawer_close">Закрыть навигационную панель</string>
+    <string name="title_activity_settings">Актививность Настроек</string>
+    <string name="title_activity_launcher">Активность лаунчера</string>
+    <string name="grid">Сетка</string>
+    <string name="list">Список</string>
+
     <!-- Settings -->
     <string name="theme">Тема</string>
     <string name="layout">Макет</string>
@@ -39,4 +43,9 @@
     <string name="show_welcome_page">Показать начальную страницу</string>
     <string name="show_welcome_page_summary">Показать начальную страницу при следующем запуске приложения</string>
     <string name="sort">Сортировка</string>
+    <string name="without_sorting">Без сортировки</string>
+    <string name="by_installation_date">По дате установки</string>
+    <string name="direct_alphabet">От А до Я</string>
+    <string name="reverse_alphabet">От Я до А</string>
+    <string name="by_launched">По количеству запусков</string>
 </resources>

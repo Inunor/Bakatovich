@@ -11,7 +11,7 @@
 
         <ImageView
             android:layout_margin="@dimen/small_margin"
-            android:src="@drawable/profile"
+            android:src="@mipmap/ic_profile_foreground"
             style="@style/CircleImage"
             android:contentDescription="@string/image"/>
 

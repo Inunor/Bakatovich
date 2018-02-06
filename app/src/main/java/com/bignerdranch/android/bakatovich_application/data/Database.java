@@ -15,15 +15,6 @@ import com.bignerdranch.android.bakatovich_application.R;
 
 public class Database {
 
-    private final static String TAG = "Database";
-    private static String insert;
-    private static String update;
-    private static String failedTo;
-    private static String or;
-    private static String get;
-    private static String remove;
-    private static String clear;
-
     private interface AppDatabase {
         String TABLE_NAME = "launched";
 
@@ -72,19 +63,9 @@ public class Database {
 
     public static void initialize(Activity activity) {
         dbHelper = new MyDbHelper(activity);
-
-        Context context = activity.getApplicationContext();
-        insert = context.getString(R.string.insert);
-        update = context.getString(R.string.update);
-        failedTo = context.getString(R.string.failed_to);
-        or = context.getString(R.string.or);
-        get = context.getString(R.string.get);
-        remove = context.getString(R.string.remove);
-        clear = context.getString(R.string.clear);
     }
 
     private static void insert(Entry entry) {
-        Log.i(TAG, insert);
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppDatabase.Columns.FIELD_NUMBER, entry.getLaunched());
         contentValues.put(AppDatabase.Columns.FIELD_TITLE, entry.getPackageName());
@@ -96,12 +77,11 @@ public class Database {
                     contentValues
             );
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + insert);
+            e.printStackTrace();
         }
     }
 
     private static void update(Entry entry) {
-        Log.i(TAG, update);
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppDatabase.Columns.FIELD_NUMBER, entry.getLaunched());
         contentValues.put(AppDatabase.Columns.FIELD_TITLE, entry.getPackageName());
@@ -114,13 +94,12 @@ public class Database {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             db.update(table, contentValues, whereClause, whereArgs);
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + update);
+           e.printStackTrace();
         }
     }
 
     public static void insertOrUpdate(Entry entry) {
         try {
-            Log.i(TAG, insert + " " + or + " " + update);
             SQLiteDatabase db = dbHelper.getReadableDatabase();
 
             String table = AppDatabase.TABLE_NAME;
@@ -144,13 +123,12 @@ public class Database {
             }
             cursor.close();
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + insert + " " + or + " " + update);
+            e.printStackTrace();
         }
     }
 
     public static int get(String title) {
         try {
-            Log.i(TAG, get);
             SQLiteDatabase db = dbHelper.getReadableDatabase();
 
             String table = AppDatabase.TABLE_NAME;
@@ -174,14 +152,13 @@ public class Database {
             cursor.close();
             return result;
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + get);
+            e.printStackTrace();
         }
         return 0;
     }
 
     public static void remove(Entry entry) {
         try {
-            Log.i(TAG, remove);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             String table  = AppDatabase.TABLE_NAME;
@@ -190,18 +167,17 @@ public class Database {
 
             db.delete(table, whereClause, whereArgs);
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + remove);
+            e.printStackTrace();
         }
     }
 
     public static void clear() {
         try {
-            Log.i(TAG, clear);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             db.delete(AppDatabase.TABLE_NAME, null, null);
             db.close();
         } catch (SQLiteException e) {
-            Log.e(TAG, failedTo + " " + clear);
+           e.printStackTrace();
         }
     }
 

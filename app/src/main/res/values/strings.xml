@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Bakatovich_Application</string>
+    <string name="app_name" translatable="false">Bakatovich</string>
     <string name="link" translatable="false">https://github.com/Inunor/Bakatovich</string>
     <string name="surname">Bakatovich</string>
     <string name="name">Anton</string>
@@ -19,10 +19,6 @@
     <string name="standard_landscape">Landscape: 6 icons in a row</string>
     <string name="dense_portrait">Portrait: 5 icons in a row</string>
     <string name="dense_landscape">Landscape: 7 icons in a row</string>
-    <string name="delete_item">Delete item?</string>
-    <string name="yes">Yes</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
     <string name="delete">Delete</string>
     <string name="launched_count">Launched: </string>
     <string name="information">Information</string>
@@ -34,46 +30,13 @@
     <string name="layout_title">Layout</string>
     <string name="congratulation_title">Congratulation</string>
 
-    <string name="some_text" translatable="false">
-        On this site you will find versions of some classics of early modern philosophy,
-        and a few from the 19th century,
-        prepared with a view to making them easier to read while leaving intact the main arguments,
-        doctrines, and lines of thought.
-    </string>
-
-    <string name="title_activity_application" translatable="false">ApplicationActivity</string>
-    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
-    <string name="title_activity_navigation" translatable="false">NavigationActivity</string>
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-
-    <!-- Log Adapters -->
-    <string name="title_activity_launcher" translatable="false">LauncherActivity</string>
-    <string name="title_activity_list" translatable="false">ListActivity</string>
-    <string name="title_launcher_adapter" translatable="false">LauncherAdapter</string>
-    <string name="title_list_adapter" translatable="false">ListAdapter</string>
-    <string name="title_application_adapter" translatable="false">ApplicationAdapter</string>
-    <string name="add_new_item" translatable="false">Add new item: </string>
-    <string name="position" translatable="false">position </string>
-    <string name="color" translatable="false">color </string>
-    <string name="action_click" translatable="false">action click</string>
-    <string name="new_snack_bar" translatable="false">new snackBar</string>
-    <string name="call_to_dismiss" translatable="false">call to dismiss()</string>
-    <string name="swipe" translatable="false">swipe</string>
-    <string name="timeout" translatable="false">timeout</string>
-    <string name="unknown" translatable="false">unknown</string>
-    <string name="snack_bar_dismissed" translatable="false">SnackBar dismissed. </string>
-    <string name="cause" translatable="false">Cause: </string>
-    <string name="deleted_item" translatable="false">Deleted item: </string>
-
-    <!-- Log Database -->
-    <string name="insert" translatable="false">insert</string>
-    <string name="update" translatable="false">update</string>
-    <string name="get" translatable="false">get</string>
-    <string name="remove" translatable="false">remove</string>
-    <string name="clear" translatable="false">clear</string>
-    <string name="failed_to" translatable="false">failed to</string>
-    <string name="or" translatable="false">or</string>
+    <!-- Navigation menu -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_settings">Settings Activity</string>
+    <string name="title_activity_launcher">Launcher Activity</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="theme">Theme</string>
@@ -82,11 +45,15 @@
     <string name="show_welcome_page">Show welcome page</string>
     <string name="show_welcome_page_summary">Show welcome page summary next time</string>
     <string name="sort">Sort</string>
+    <string name="without_sorting">Without sorting</string>
+    <string name="by_installation_date">By installation date</string>
+    <string name="direct_alphabet">From A to Z</string>
+    <string name="reverse_alphabet">From Z to A</string>
+    <string name="by_launched">By launched</string>
 
     <!-- Preferences key -->
     <string name="theme_key" translatable="false">theme</string>
     <string name="layout_key" translatable="false">layout</string>
     <string name="welcome_page_key" translatable="false">welcome_page</string>
     <string name="sort_key" translatable="false">sort</string>
-
 </resources>

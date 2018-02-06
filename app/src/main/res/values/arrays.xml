@@ -25,11 +25,11 @@
 
     <!-- SORT -->
     <string-array name="sort_entries" translatable="false">
-        <item>No sorting</item>
-        <item>By installation date</item>
-        <item>Alphabetically AZ</item>
-        <item>Alphabetically ZA</item>
-        <item>By Launched</item>
+        <item>@string/without_sorting</item>
+        <item>@string/by_installation_date</item>
+        <item>@string/direct_alphabet</item>
+        <item>@string/reverse_alphabet</item>
+        <item>@string/by_launched</item>
     </string-array>
 
     <string-array name="sort_values" translatable="false">

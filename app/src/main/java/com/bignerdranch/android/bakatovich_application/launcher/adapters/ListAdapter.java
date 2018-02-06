@@ -20,11 +20,8 @@ import java.util.List;
 
 public class ListAdapter extends LauncherAdapter {
 
-    private final String TAG;
-
     public ListAdapter(@NonNull final List<Entry> data, final Activity activity) {
         super(data, activity);
-        TAG = activity.getString(R.string.title_application_adapter);
     }
 
     @Override

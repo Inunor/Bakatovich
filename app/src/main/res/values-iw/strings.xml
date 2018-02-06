@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="surname">Bakatowi</string>
     <string name="name">אנטון</string>
@@ -16,10 +17,6 @@
     <string name="standard_landscape">נוף: 6 סמלים בשורה</string>
     <string name="dense_portrait">דיוקן: 5 סמלים ברצף</string>
     <string name="dense_landscape">גינון: 7 סמלים ברציפות</string>
-    <string name="delete_item">למחוק פריט?</string>
-    <string name="yes">כן.</string>
-    <string name="grid">רשת</string>
-    <string name="list">רשימה של</string>
     <string name="delete">הסר</string>
     <string name="launched_count">זמן ריצה: </string>
     <string name="information">מידע</string>
@@ -31,6 +28,14 @@
     <string name="layout_title">מַעֲרָך</string>
     <string name="congratulation_title">מזל טוב</string>
 
+    <!-- Navigation menu -->
+    <string name="navigation_drawer_open">פתח את מגירת הניווט</string>
+    <string name="navigation_drawer_close">סגור את מגירת הניווט</string>
+    <string name="title_activity_settings">פעילות הגדרות</string>
+    <string name="title_activity_launcher">פעילות מפעיל</string>
+    <string name="grid">רשת</string>
+    <string name="list">רשימה של</string>
+
     <!-- Settings -->
     <string name="theme">נושא</string>
     <string name="layout">פריסה</string>
@@ -38,4 +43,9 @@
     <string name="show_welcome_page">הצג דף פתיחה</string>
     <string name="show_welcome_page_summary">הצג את דף הפתיחה בפעם הבאה שתפעיל את היישום</string>
     <string name="sort">מיון</string>
+    <string name="without_sorting">ללא מיון</string>
+    <string name="by_installation_date">לפי תאריך ההתקנה</string>
+    <string name="direct_alphabet">סדר ישיר של האלפבית</string>
+    <string name="reverse_alphabet">סדר הפוך של האלפבית</string>
+    <string name="by_launched">לפי מספר שיגורים</string>
 </resources>

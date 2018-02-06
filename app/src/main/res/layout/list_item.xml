@@ -14,7 +14,7 @@
             android:id="@+id/list_image"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginStart="@dimen/extra_small_margin"
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_gravity="center_vertical"
             android:background="@drawable/circle"
@@ -30,6 +30,7 @@
                 android:id="@+id/list_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textIsSelectable="false"
                 android:textSize="@dimen/medium_font"
                 android:textColor="@android:color/black"
                 android:lines="1" />

@@ -39,7 +39,6 @@ public class LauncherActivity extends AppCompatActivity
     private BroadcastReceiver monitor = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("TAG", "AAAAAAAAAAAAAAAAA");
             String action = intent.getAction();
             if (action != null) {
                 switch (action) {
@@ -106,8 +105,8 @@ public class LauncherActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        | Intent.FLAG_ACTIVITY_NEW_TASK );
+               /* intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_NEW_TASK );*/
                 startActivity(intent);
             }
         });
@@ -173,8 +172,7 @@ public class LauncherActivity extends AppCompatActivity
             setGridLayoutFragment();
         } else if (id == R.id.nav_list) {
             setListLayoutFragment();
-        }
-        if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_settings) {
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             finish();
