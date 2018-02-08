@@ -2,38 +2,32 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:title="@string/settings"
-        android:key="settings">
+    <ListPreference
+        android:key="@string/theme_key"
+        android:title="@string/theme"
+        android:defaultValue="0"
+        android:entries="@array/theme_entries"
+        android:entryValues="@array/theme_values" />
 
-        <ListPreference
-            android:key="@string/theme_key"
-            android:title="@string/theme"
-            android:defaultValue="0"
-            android:entries="@array/theme_entries"
-            android:entryValues="@array/theme_values" />
+    <ListPreference
+        android:key="@string/layout_key"
+        android:title="@string/layout"
+        android:defaultValue="0"
+        android:entries="@array/layout_entries"
+        android:entryValues="@array/layout_values" />
 
-        <ListPreference
-            android:key="@string/layout_key"
-            android:title="@string/layout"
-            android:defaultValue="0"
-            android:entries="@array/layout_entries"
-            android:entryValues="@array/layout_values" />
+    <ListPreference
+        android:key="@string/sort_key"
+        android:title="@string/sort"
+        android:summary="@string/choose_sort"
+        android:defaultValue="0"
+        android:entries="@array/sort_entries"
+        android:entryValues="@array/sort_values" />
 
-        <ListPreference
-            android:key="@string/sort_key"
-            android:title="@string/sort"
-            android:summary="@string/choose_sort"
-            android:defaultValue="0"
-            android:entries="@array/sort_entries"
-            android:entryValues="@array/sort_values" />
-
-        <SwitchPreference
-            android:key="@string/welcome_page_key"
-            android:title="@string/show_welcome_page"
-            android:defaultValue="false"
-            android:summary="@string/show_welcome_page_summary" />
-
-    </PreferenceCategory>
+    <SwitchPreference
+        android:key="@string/welcome_page_key"
+        android:title="@string/show_welcome_page"
+        android:defaultValue="false"
+        android:summary="@string/show_welcome_page_summary" />
 
 </PreferenceScreen>

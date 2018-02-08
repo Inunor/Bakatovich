@@ -120,14 +120,14 @@ public class LauncherActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         GridFragment fragment = new GridFragment();
         fragmentManager.beginTransaction()
-                .replace(R.id.launcher_fragment_container, fragment).commit();
+                .replace(R.id.fragment_container, fragment).commit();
     }
 
     private void setListLayoutFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         ListFragment fragment = new ListFragment();
         fragmentManager.beginTransaction()
-                .replace(R.id.launcher_fragment_container, fragment).commit();
+                .replace(R.id.fragment_container, fragment).commit();
     }
 
     @Override
@@ -136,6 +136,7 @@ public class LauncherActivity extends AppCompatActivity
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
         intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         intentFilter.addDataScheme(DATA_THEME);
         registerReceiver(monitor, intentFilter);
 
@@ -144,7 +145,7 @@ public class LauncherActivity extends AppCompatActivity
     @Override
     public void onStop() {
         super.onStop();
-        unregisterReceiver(monitor);
+        //unregisterReceiver(monitor);
         for (Entry entry : EntryStorage.getData()) {
             Database.insertOrUpdate(entry);
         }
@@ -173,7 +174,6 @@ public class LauncherActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
-            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
