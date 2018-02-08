@@ -18,37 +18,75 @@ import com.bignerdranch.android.bakatovich_application.settings.Theme;
 
 public class ThemeFragment extends Fragment {
 
+    private LinearLayout lightThemeRadioCover;
+    private LinearLayout darkThemeRadioCover;
+    private RadioButton lightThemeRadioButton;
+    private RadioButton darkThemeRadioButton;
+    private String LIGHT_THEME = "0";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_theme, container, false);
-        final LinearLayout lightThemeRadioCover = v.findViewById(R.id.light_theme_radio_cover);
-        final LinearLayout darkThemeRadioCover = v.findViewById(R.id.dark_theme_radio_cover);
-        final RadioButton lightThemeRadioButton = v.findViewById(R.id.light_theme_radio);
-        final RadioButton darkThemeRadioButton = v.findViewById(R.id.dark_theme_radio);
+        lightThemeRadioCover = v.findViewById(R.id.light_theme_radio_cover);
+        darkThemeRadioCover = v.findViewById(R.id.dark_theme_radio_cover);
+        lightThemeRadioButton = v.findViewById(R.id.light_theme_radio);
+        darkThemeRadioButton = v.findViewById(R.id.dark_theme_radio);
+
+        if (SettingsFragment.getTheme(getActivity()) == Theme.getTheme(LIGHT_THEME)) {
+            setLightTheme();
+        } else {
+            setDarkTheme();
+        }
 
         lightThemeRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lightThemeRadioButton.setChecked(true);
-                darkThemeRadioButton.setChecked(false);
-                darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-                darkThemeRadioCover.setBackground(getResources().getDrawable(R.drawable.borders, null));
-                SettingsFragment.setTheme(Theme.getLight(), getActivity());
+                setLightTheme();
+                getActivity().recreate();
             }
         });
 
         darkThemeRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lightThemeRadioButton.setChecked(false);
-                darkThemeRadioButton.setChecked(true);
-                darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorGray));
-                SettingsFragment.setTheme(Theme.getDark(), getActivity());
+                setDarkTheme();
+                getActivity().recreate();
+            }
+        });
+
+        lightThemeRadioCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLightTheme();
+                getActivity().recreate();
+            }
+        });
+
+        darkThemeRadioCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setDarkTheme();
+                getActivity().recreate();
             }
         });
 
         return v;
+    }
+
+    private void setLightTheme() {
+        lightThemeRadioButton.setChecked(true);
+        darkThemeRadioButton.setChecked(false);
+        darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        darkThemeRadioCover.setBackground(getResources().getDrawable(R.drawable.borders, null));
+        SettingsFragment.setTheme(Theme.getLight(), getActivity());
+    }
+
+    private void setDarkTheme() {
+        lightThemeRadioButton.setChecked(false);
+        darkThemeRadioButton.setChecked(true);
+        darkThemeRadioCover.setBackgroundColor(getResources().getColor(R.color.colorGray));
+        SettingsFragment.setTheme(Theme.getDark(), getActivity());
     }
 }
